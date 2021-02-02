@@ -54,8 +54,6 @@ AUDIO.build = class{
         const median = AUDIO.method.median(this.buf)
         // const offset = median
 
-        console.log(median)
-
         for(let i = 0; i < this.buf.length; i++){
             // this.buf[i] = this.buf[i] - offset + i * (this.param.fft * 0.000005)
             this.buf[i] = Math.max(0, this.buf[i] - median)
