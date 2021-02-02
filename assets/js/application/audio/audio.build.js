@@ -58,6 +58,11 @@ AUDIO.build = class{
             // this.buf[i] = this.buf[i] - offset + i * (this.param.fft * 0.000005)
             this.buf[i] = Math.max(0, this.buf[i] - median)
         }
+
+        console.log(this.buf.reduce((x, y) => x + y))
+
+        // const max = Math.max(...this.buf), min = Math.min(...this.buf)
+        // this.buf = this.buf.map(e => METHOD.normalize(e, 1, 1.2, max, min))
     }
 
     // event
