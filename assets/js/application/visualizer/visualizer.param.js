@@ -1,8 +1,8 @@
 VISUALIZER.param = class{
     constructor(param = {}){
-        this.offset = 0.25
-        this.width = 60
-        this.height = 1
-        this.seg = 164
+        this.offset = param.offset || 0.25
+        this.width = param.width || 60
+        this.height = param.height || 1
+        this.seg = param.seg || 164
     }
 }

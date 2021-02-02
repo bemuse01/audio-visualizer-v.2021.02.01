@@ -25,6 +25,7 @@ VISUALIZER.build = class{
 
     #createGeometry(){
         this.geometry = new THREE.PlaneGeometry(this.param.width, this.param.height, this.param.seg)
+        console.log(this.geometry.vertices.length / 2)
     }
 
     #createMaterial(){
@@ -39,7 +40,7 @@ VISUALIZER.build = class{
         this.geometry.vertices.forEach((e, i) => {
             // if(i < this.geometry.vertices.length / 2) e.y = audioData[i] * 0.1
             if(i < this.geometry.vertices.length / 2) e.y = this.param.offset + audioData[i]
-            else e.y = -this.param.offset + -audioData[i % audioData.length - 1]
+            else e.y = -this.param.offset + -audioData[i % audioData.length]
         })
         this.geometry.verticesNeedUpdate = true
     }
