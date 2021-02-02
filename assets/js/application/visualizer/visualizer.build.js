@@ -27,7 +27,6 @@ VISUALIZER.build = class{
         this.geometry = new THREE.PlaneGeometry(this.param.width, this.param.height, this.param.seg)
         // this.geometry = new THREE.CircleGeometry(this.param.radius, this.param.seg)
         // this.sample = new THREE.CircleGeometry(this.param.radius, this.param.seg).vertices
-        console.log(this.geometry.vertices.length / 2)
     }
 
     #createMaterial(){
@@ -49,8 +48,11 @@ VISUALIZER.build = class{
         // const vertices = geometry.vertices
 
         // for(let i = 1; i < vertices.length; i++){
-        //     const x = this.sample[i].x + (this.sample[i].x * audioData[i - 1]) / 10
-        //     const y = this.sample[i].y + (this.sample[i].y * audioData[i - 1]) / 10
+        //     const radius = this.param.radius + audioData[i - 1] * 20
+        //     const degree = 360 / this.param.seg * (i - 1) * RADIAN
+
+        //     const x = Math.cos(degree) * radius
+        //     const y = Math.sin(degree) * radius
 
         //     vertices[i].x = x
         //     vertices[i].y = y

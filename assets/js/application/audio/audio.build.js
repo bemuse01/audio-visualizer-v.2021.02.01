@@ -49,6 +49,8 @@ AUDIO.build = class{
         const sample = [...this.audioData.slice(start)]
 
         this.buf = windowing.kaiser(sample, 1.75).slice(0, this.param.display)
+        // this.buf = windowing.kaiser(sample, 1.5).slice(0, this.param.display)
+        // this.buf = windowing.hann(sample).slice(0, this.param.display)
         // this.buf = sample.slice(0, this.param.display)
 
         const median = AUDIO.method.median(this.buf)
@@ -58,8 +60,6 @@ AUDIO.build = class{
             // this.buf[i] = this.buf[i] - offset + i * (this.param.fft * 0.000005)
             this.buf[i] = Math.max(0, this.buf[i] - median)
         }
-
-        console.log(this.buf.reduce((x, y) => x + y))
 
         // const max = Math.max(...this.buf), min = Math.min(...this.buf)
         // this.buf = this.buf.map(e => METHOD.normalize(e, 1, 1.2, max, min))
