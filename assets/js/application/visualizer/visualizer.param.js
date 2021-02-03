@@ -5,5 +5,6 @@ VISUALIZER.param = class{
         this.height = param.height || 1
         this.radius = param.radius || 20
         this.seg = param.seg || 164
+        this.boost = param.boost || 1.2
     }
 }

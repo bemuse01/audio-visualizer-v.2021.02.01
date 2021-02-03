@@ -40,8 +40,8 @@ VISUALIZER.build = class{
     animate(audioData){
         this.geometry.vertices.forEach((e, i) => {
             // if(i < this.geometry.vertices.length / 2) e.y = audioData[i] * 0.1
-            if(i < this.geometry.vertices.length / 2) e.y = this.param.offset + audioData[i] * 2
-            else e.y = -this.param.offset + -audioData[i % audioData.length] * 2
+            if(i < this.geometry.vertices.length / 2) e.y = this.param.offset + audioData[i] * this.param.boost
+            else e.y = -this.param.offset + -audioData[i % audioData.length] * this.param.boost
         })
       
         // const geometry = this.geometry
