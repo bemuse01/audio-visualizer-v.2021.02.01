@@ -38,7 +38,7 @@ new Vue({
 
         // audio
         initAudio(){
-            COMP.audio = new AUDIO.build('../../../song/LiSA - Unlasting.mp3')
+            COMP.audio = new AUDIO.build('assets/song/LiSA - Unlasting.mp3')
 
             window.addEventListener('click', this.playAudio)
         },
