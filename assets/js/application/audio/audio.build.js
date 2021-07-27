@@ -32,13 +32,14 @@ AUDIO.build = class{
 		source.connect(this.analyser)
 		this.analyser.connect(this.context.destination)
 		this.analyser.fftSize = this.param.fft
+        this.analyser.smoothingTimeConstant = 0.9
         
         const bufferLength = this.analyser.frequencyBinCount
         
         this.audioData = new Uint8Array(bufferLength)
 
-        console.log(this.context)
-        console.log(this.audioData)
+        // console.log(this.context)
+        // console.log(this.audioData)
     }
 
     // render
@@ -48,11 +49,12 @@ AUDIO.build = class{
         const start = Math.floor(1 / this.param.fps * this.context.sampleRate)
         const sample = [...this.audioData.slice(start)]
 
-        this.buf = windowing.kaiser(sample, 1.75).slice(0, this.param.display)
+        // this.buf = windowing.kaiser(sample, 1.75).slice(0, this.param.display)
         // this.buf = windowing.kaiser(sample, 1.5).slice(0, this.param.display)
         // this.buf = windowing.hann(sample).slice(0, this.param.display)
         // this.buf = sample.slice(0, this.param.display)
-
+        this.buf = sample.slice(0, this.param.display).map(e => METHOD.normalize(e, 0, 10, 0, 255))
+        
         const median = AUDIO.method.median(this.buf)
         // const offset = median
 
